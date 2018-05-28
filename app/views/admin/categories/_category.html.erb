@@ -1,0 +1,39 @@
+<td>
+  <% unless category.leaf? %>
+    <button data-toggle="collapse" data-parent="#table_category"
+      data-target=".category-<%= category.id %>" class="btn btn-box-tool
+      btn-tree" type="button">
+      <i class="fa fa-plus"></i>
+    </button>
+  <% end %>
+</td>
+<td><%= category.name %></td>
+<td>
+  <%= link_to t(".edit"), edit_admin_category_path(category),
+    class: "btn btn-info", "data-toggle": "modal",
+    "data-target": "#edit_category_#{category.id}"  %>
+</td>
+<td>
+  <%= link_to t(".delete"), admin_category_path(category),
+    class: "btn btn-danger", method: :delete,
+    data: {confirm: t("data.confirm")} %>
+</td>
+<div class="modal fade" id="edit_category_<%= category.id %>" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;
+        </button>
+        <h4 class="modal-title"><%= t ".edit_category" %></h4>
+      </div>
+      <div class="modal-body">
+        <%= render "form", form_object: category %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <%= t "admin.categories.index.close" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<%= form_for @tour, html: {multipart: true}, url: yield(:url_path) do |f| %>
+  <div class="form-group">
+    <%= render "shared/error_messages", object: f.object %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".category") %>
+    <%= f.select :category_id,
+      options_for_select(@supports.categories, @tour.category_id),
+      {include_blank: true}, class: "form-control select2" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".num_people") %>
+    <%= f.number_field :num_people, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".price") %>
+    <%= f.text_field :price_per_person, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".picture") %>
+    <%= f.file_field :picture %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".duration") %>
+    <%= f.number_field :duration, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".description") %>
+    <%= f.text_area :description, class: "form-control ckeditor" %>
+  </div>
+  <fieldset>
+    <legend><%= f.label t(".start_dates") %></legend>
+    <div class="form-inline form-group tour_dates">
+      <%= f.fields_for :tour_dates do |date| %>
+        <%= render "tour_date_field", {f: date, places: @supports.places} %>
+      <% end %>
+    </div>
+    <%= link_to_add_fields t(".add_tour_date"), f, :tour_dates,
+      @supports.places %>
+  </fieldset>
+  <fieldset>
+    <legend><%= f.label t(".tour_places") %></legend>
+    <div class="form-inline form-group tour_places">
+      <%= f.fields_for :tour_places do |place| %>
+        <%= render "tour_place_field", {f: place, places: @supports.places} %>
+      <% end %>
+    </div>
+    <%= link_to_add_fields t(".add_tour_place"), f, :tour_places,
+      @supports.places %>
+  </fieldset>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

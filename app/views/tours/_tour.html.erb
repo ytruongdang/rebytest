@@ -1,0 +1,16 @@
+<div class="col-md-4 tour">
+  <%= link_to tour_path(tour), class: "tour-picture" do %>
+    <%= image_tag "hoi_an.jpg" %>
+  <% end %>
+  <div class="info">
+    <div class="col-md-12">
+      <%= link_to tour_path(tour), class: "tour-picture" do %>
+        <h3 class="tour-name"><%= tour.name %></h3>
+      <% end %>
+      <p class="col-md-6"><%= t ".num_people" %><%= tour.num_people %></span></p>
+      <p class="col-md-6"><%= t ".price_per_person" %>
+        <span class="price"><%= number_to_currency tour.price_per_person %></span>
+      </p>
+    </div>
+  </div>
+</div>

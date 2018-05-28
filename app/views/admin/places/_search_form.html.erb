@@ -1,0 +1,12 @@
+<%= form_tag admin_places_path, method: :get, class: "form-inline" do %>
+  <div class="form-group">
+    <%= label_tag :name_cont, t("admin.places.index.name") %>
+    <%= text_field_tag :name_cont, params[:name_cont], class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :place_type_eq, t("admin.places.index.place_type") %>
+    <%= select_tag :place_type_eq, options_for_select(Place.place_types),
+      include_blank: t("admin.places.index.select"), class: "form-control" %>
+  </div>
+  <%= submit_tag t("admin.places.index.search"), class: "btn btn-default" %>
+<% end %>

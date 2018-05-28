@@ -1,0 +1,67 @@
+<% provide :title, t(".title") %>
+<div class="row">
+  <div class="col-xs-2">
+  </div>
+  <div class="col-xs-6">
+    <p class="lead booking-title"><%= t ".title" %></p>
+
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th><%= t ".contact_name" %></th>
+          <td><%= @booking.contact_name %></td>
+        </tr>
+        <tr>
+          <th><%= t ".contact_phone" %></th>
+          <td><%= @booking.contact_phone %></td>
+        </tr>
+        <tr>
+          <th><%= t ".contact_address" %></th>
+          <td><%= @booking.contact_address %></td>
+        </tr>
+        <tr>
+          <th><%= t ".num_tourist" %></th>
+          <td><%= @booking.num_tourist %></td>
+        </tr>
+        <tr>
+          <th><%= t ".total_price" %></th>
+          <td><%= @booking.total_price %></td>
+        </tr>
+        <tr>
+          <th><%= t ".tour_booking" %></th>
+          <td><%= @booking.tour_date.tour.name %></td>
+        </tr>
+        <tr>
+          <th><%= t ".start_date" %></th>
+          <td><%= @booking.tour_date.start_date %></td>
+        </tr>
+        <tr>
+          <th><%= t ".status" %></th>
+          <td><span class="status_<%= @booking.status %>" >
+            <%= @booking.status %></span></td>
+        </tr>
+        <tr>
+          <th><%= t ".cancel_request" %></th>
+          <td><%= @booking.is_cancel %></td>
+        </tr>
+        <tr>
+          <th><%= t ".created_at" %></th>
+          <td><%= l @booking.created_at %></td>
+        </tr>
+      </table>
+    </div>
+    <% unless @booking.approve? || @booking.reject? %>
+      <%= form_for [:admin, @booking] do |f| %>
+        <div class="row pull-bottom">
+          <div class="col-md-5">
+            <%= f.select :status, options_for_select(@statuses),
+              {}, class: "form-control" %>
+          </div>
+          <div class="col-md-5">
+            <%= f.submit t(".update_status"), class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title><%= full_title yield :title %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag  "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "https://checkout.stripe.com/checkout.js",
+      "data-turbolinks-track": "reload" %>
+  </head>
+  <body class="customer">
+    <%= render "layouts/header" %>
+    <div class="container-fluid">
+      <% if flash.any? %>
+        <div class="row">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render "layouts/footer" %>
+    </div>
+  </body>
+</html>

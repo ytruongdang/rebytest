@@ -1,0 +1,85 @@
+<% provide :title, @review.title %>
+
+<div class="row review">
+  <div class="col-sm-3 review-information">
+    <div class="picture">
+      <%= link_to @review.tour do %>
+        <%= image_tag "hoi_an.jpg" %>
+      <% end %>
+    </div>
+    <div class="information">
+      <p><strong><%= t ".review_for" %></strong>
+        <%= link_to @review.tour do %>
+          <span class="tour-name"><%= @review.tour.name %></span>
+        <% end %>
+      </p>
+      <p class="review_by"><strong><%= t ".review_by" %></strong>
+        <%= @review.user.name %></p>
+      <p class="review_at"><strong><%= t ".review_at" %></strong>
+        <%= l @review.created_at %></p>
+      <p class="rating">
+        <strong><%= t ".rating" %></strong>
+        <i class="fa fa-star ave_star" aria-hidden="true"></i>
+        <%= t ".average_rating", rate: @review.rating,
+          max_rate: Settings.rates.max_star %>
+      </p>
+    </div>
+    <div class="edit-review">
+      <% if can? :update, @review %>
+        <%= link_to edit_tour_review_path(@review.tour, @review) do %>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+          <%= t ".edit" %>
+        <% end %>
+      <% end %>
+      <% if can? :destroy, @review %>
+        <%= link_to tour_review_path(@review.tour, @review),
+          method: :delete, data: {confirm: t("data.confirm")} do %>
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <%= t ".delete" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-9 review-details">
+    <div class="review-content">
+      <p class="title"><%= @review.title %></p>
+      <div class="content">
+        <%= @review.content.html_safe %>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 review-like">
+          <%= render "likes/like", object: @review %>
+        </div>
+        <% if user_signed_in? %>
+          <div class="col-sm-6">
+            <p class="text-right"><strong><%= t ".your_rating" %></strong>
+              <% if @supports.user_rated? current_user %>
+                <%= rating_for_user @review, current_user, :quality,
+                  {readonly: true} %>
+              <% else %>
+                <%= rating_for_user @review, current_user, :quality %>
+              <% end %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="review-comments">
+      <p class="title">
+        <i class="fa fa-comments-o margin-r-5"></i>
+        <%= t ".comments" %>
+        (<span class="comment-count"><%= @supports.comments.count %></span>)
+      </p>
+      <div class="comment-form">
+        <%= render "comments/form" %>
+      </div>
+      <div class="comment-list">
+        <%= render @supports.comments %>
+      </div>
+      <div class="col-md-12 text-center pagination">
+        <%= will_paginate @supports.comments %>
+      </div>
+    </div>
+  </div>
+</div>

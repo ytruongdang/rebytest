@@ -1,0 +1,114 @@
+<%= form_for @payment do |f| %>
+  <% if flash[:error].present? %>
+    <div id="error_explanation">
+      <p><%= flash[:error] %></p>
+    </div>
+  <% end %>
+  <section class="invoice">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="page-header">
+          <i class="fa fa-globe"></i><%= t ".framgia" %>.
+          <small class="pull-right"><%= t ".date" %><%= l Time.now %></small>
+        </h2>
+      </div>
+    </div>
+    <div class="row invoice-info">
+      <div class="col-sm-4 invoice-col">
+        <%= t ".from" %>
+        <address>
+          <strong><%= t ".admin" %></strong><br>
+          <%= t ".admin_address" %><br>
+          <%= t ".admin_phone" %><br>
+          <%= t ".admin_email" %>
+        </address>
+      </div>
+      <div class="col-sm-4 invoice-col">
+        <%= t ".to" %>
+        <address>
+          <strong><%= @booking.contact_name %></strong><br>
+          <%= @booking.contact_address %><br>
+          <%= t ".client_phone" %><%= @booking.contact_phone %><br>
+          <%= t ".client_email" %><%= current_user.email %>
+        </address>
+      </div>
+      <div class="col-sm-4 invoice-col">
+        <b><%= t ".booking" %></b><br>
+        <br>
+        <b><%= t ".booking_id" %></b><%= @booking.id %><br>
+        <b><%= t ".payment_date" %></b><%= l Time.now %><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th><%= t ".tour" %></th>
+              <th><%= t ".duration" %></th>
+              <th><%= t ".price_per_person" %></th>
+              <th><%= t ".start_date" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @booking.tour_date.tour.name %></td>
+              <td><%= @booking.tour_date.tour.duration %></td>
+              <td><%= number_to_currency @booking.tour_date.tour.
+                price_per_person %></td>
+              <td><label class="label bg-blue">
+                <%= @booking.tour_date.start_date %></label></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <p class="lead"><%= t ".term_condition" %></p>
+        <textarea class="text-muted well well-sm no-shadow " rows="6">
+          <%= t ".condition_content" %>
+        </textarea>
+      </div>
+      <div class="col-xs-6">
+        <p class="lead"><%= t ".payment_amount" %></p>
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <th><%= t ".price_per_person" %>:</th>
+              <td><%= number_to_currency @booking.tour_date.tour.
+                price_per_person %></td>
+            </tr>
+            <tr>
+              <th><%= t ".number_tourist" %></th>
+              <td><%= @booking.num_tourist %></td>
+            </tr>
+            <tr>
+              <th><%= t ".discount" %></th>
+              <td><%= @booking.tour_date.tour.discount %>%</td>
+            </tr>
+            <tr>
+              <th><%= t ".total" %></th>
+              <td>
+                <label class="label bg-red">
+                  <%= number_to_currency @booking.total_price %>
+                </label></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <%= f.hidden_field :booking_id, value: @booking.id %>
+    <%= hidden_field_tag :stripeToken %>
+    <%= hidden_field_tag :stripeEmail %>
+    <%= hidden_field_tag :total_price, @booking.total_price %>
+    <%= hidden_field_tag :number_tourist, @booking.num_tourist %>
+    <div class="row no-print">
+      <div class="col-xs-12">
+        <button id="customButton" class="btn btn-success pull-right">
+          <i class="fa fa-credit-card"></i><%= t ".submit_payment" %>
+        </button>
+      </div>
+    </div>
+  </section>
+<% end %>

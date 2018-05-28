@@ -1,0 +1,82 @@
+<%= form_tag admin_tours_path, method: :get do %>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag t(".tour_place_directory") %>
+      <%= text_field_tag :name_or_category_name_or_places_name_cont,
+        params[:name_or_category_name_or_places_name_cont],
+        class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag t(".start_date") %>
+      <%= date_field_tag :tour_dates_start_date_eq,
+        params[:tour_dates_start_date_eq], class: "form-control datepicker" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag t(".num_people") %>
+      <%= number_field_tag :num_people_gteq, params[:num_people_gteq],
+        class: "form-control", min: Settings.tours.min_people %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= label_tag t(".duration") %>
+      <div class="input-group">
+        <%= number_field_tag :duration_eq, params[:duration_eq],
+          class: "form-control", min: Settings.tours.min_duration %>
+        <span class="input-group-addon"><%= t ".days" %></span>
+      </div>
+    </div>
+  </div>
+  <fieldset class="col-md-6">
+    <legend><%= t ".price" %> <small>(<%= t ".per_person" %>)</small></legend>
+    <div class="form-group">
+      <%= label_tag t(".from") %>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <%= t "number.currency.format.unit" %>
+        </span>
+        <%= number_field_tag :from_price, params[:from_price],
+          class: "form-control", min: Settings.tours.min_price %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag t(".to") %>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <%= t "number.currency.format.unit" %>
+        </span>
+        <%= number_field_tag :to_price, params[:to_price],
+          class: "form-control", min: Settings.tours.min_price %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="col-md-6">
+    <legend><%= t ".order" %></legend>
+    <div class="form-group">
+      <%= label_tag t(".rating") %>
+      <%= select_tag :rating_rule,
+        options_for_select(@supports.order_rules, params[:rating_rule]),
+        {include_blank: true, class: "form-control"} %>
+    </div>
+    <div class="form-group">
+      <%= label_tag t(".price") %>
+      <%= select_tag :price_rule,
+        options_for_select(@supports.order_rules, params[:price_rule]),
+        {include_blank: true, class: "form-control"} %>
+    </div>
+  </fieldset>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= select_tag :status_eq,
+        options_for_select(@supports.statuses, params[:status_eq]),
+        {include_blank: t(".select_status"), class: "form-control"} %>
+    </div>
+  </div>
+  <div class="col-md-6 text-right">
+    <%= submit_tag t(".search"), class: "btn btn-danger" %>
+  </div>
+<% end %>

@@ -1,0 +1,44 @@
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <ul class="sidebar-menu">
+      <li class="header"><%= t ".manager" %></li>
+      <li class="active">
+        <%= link_to admin_users_path do %>
+          <i class="fa fa-user"></i> <span><%= t ".users" %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_places_path do %>
+          <i class="fa fa-picture-o"></i> <span><%= t ".places" %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_categories_path do %>
+          <i class="fa fa-tags"></i> <span><%= t ".categories" %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_tours_path do %>
+          <i class="fa fa-plane"></i> <span><%= t ".tours" %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_bookings_path do %>
+          <i class="fa fa-calendar-check-o"></i>
+          <span><%= t ".booking_requests" %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_reviews_path do %>
+          <i class="fa fa-pencil-square-o"></i>
+          <span><%= t ".user_reviews" %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#" do %>
+          <i class="fa fa-signal"></i> <span><%= t ".revenue" %></span>
+        <% end %>
+      </li>
+    </ul>
+  </section>
+</aside>

@@ -1,0 +1,59 @@
+<div class="box box-danger">
+  <div class="box-header with-border">
+    <h2 class="box-title"><%= t".title" %></h2>
+  </div>
+  <div class="box-body body-booking">
+    <div class="row">
+      <%= form_for [@tour, @booking] do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :contact_name %>
+            <%= f.text_field :contact_name, value: current_user.name,
+              class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :contact_phone %>
+            <%= f.text_field :contact_phone, value: current_user.phone,
+              class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :contact_address %>
+            <%= f.text_field :contact_address, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :num_tourist %>
+            <%= f.text_field :num_tourist,
+              class: "form-control num-tourist" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :tour_date_id %>
+            <%= f.select :tour_date_id, @supports.tour_dates,
+              {}, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description, class: "form-control" %>
+          </div>
+        </div>
+        <div class="price" align="center">
+          <p><strong><%= t ".description_price" %>
+            <%= number_to_currency @tour.price_per_person %>
+            <%= t ".price" %></strong>
+          </p>
+        </div>
+        <div class="col-md-4" >
+          <%= f.hidden_field :total_price,
+            value: @booking.total_price, class: "total_price" %>
+          <%= f.hidden_field :price_per_person,
+            value: @tour.price_per_person, class: "price_per_person" %>
+        </div>
+        <div class="col-md-4" >
+          <%= f.submit t(".submit"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

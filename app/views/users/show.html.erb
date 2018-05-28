@@ -1,0 +1,36 @@
+<% provide :title, t(".title") %>
+
+<h1><%= t ".title" %></h1>
+
+<div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-info">
+    <table class="table table-striped table-hover table-responsive">
+      <tr>
+        <th><%= t ".name" %></th>
+        <td><%= current_user.name %></td>
+      </tr>
+      <tr>
+        <th><%= t ".email" %></th>
+        <td><%= current_user.email %></td>
+      </tr>
+      <tr>
+        <th><%= t ".phone" %></th>
+        <td><%= current_user.phone %></td>
+      </tr>
+      <tr>
+        <th><%= t ".address" %></th>
+        <td><%= current_user.address %></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="text-right">
+          <%= link_to t(".update"), edit_user_registration_path,
+            class: "btn btn-primary" %>
+          <%= link_to t(".booking_request"), bookings_path,
+            class: "btn btn-default" %>
+          <%= link_to t(".manage_review"), reviews_path,
+            class: "btn btn-default" %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

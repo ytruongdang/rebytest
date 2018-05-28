@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="tour clearfix">
+      <div class="col-sm-4">
+        <div class="picture">
+          <%= image_tag "hoi_an.jpg" %>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <p><%= link_to tour.name, tour_path(tour), class: "tour-name" %></p>
+        <p><%= rating_for tour, :quality, readonly: true %></p>
+        <p><strong><%= t ".category" %></strong> <%= tour.category.name %></p>
+        <p><strong><%= t ".duration" %></strong> <%= tour.duration %></p>
+        <p><strong><%= t ".num_people" %></strong> <%= tour.num_people %></p>
+      </div>
+      <div class="col-sm-2">
+        <p><%= t ".from" %>
+          <span class="price"><%= number_to_currency tour.price_per_person %></span>
+          (<%= t ".per_person" %>)</p>
+        <p class="detail">
+          <button class="btn btn-primary"><%= t ".detail" %></button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

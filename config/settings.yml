@@ -1,0 +1,25 @@
+tours:
+  newest_tours: 5
+  hotest_tours: 6
+  cheapest_tours: 6
+  popular_places: 6
+  tours_per_page: 10
+  min_people: 0
+  min_price: 0
+  min_duration: 0
+users:
+  order_per_page: 10
+reviews:
+  per_pages_review: 5
+  comment_per_page: 5
+  admin_review_per_page: 10
+ckeditor:
+  max_attachment_size: 100
+  max_picture_size: 3
+rates:
+  min_star: 0
+  max_star: 5
+bookings:
+  per_page_bookings: 10
+pictures:
+  max_picture_size: 5

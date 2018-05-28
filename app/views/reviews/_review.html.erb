@@ -1,0 +1,12 @@
+<tr>
+  <td><%= review.review_type %></td>
+  <td><%= review.title %></td>
+  <td><%= t ".average_rating", rate: review.rating,
+    max_rate: Settings.rates.max_star %></td>
+  <td><%= review.tour.name %></td>
+  <td><%= l review.created_at %></td>
+  <td>
+    <%= link_to t(".view"), tour_review_path(review.tour, review),
+      class: "btn btn-info" %>
+  </td>
+</tr>

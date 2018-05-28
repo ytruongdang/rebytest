@@ -1,0 +1,47 @@
+<div class="row newset-tours">
+  <div id="col-md-12">
+    <header id="header-area" class="intro-section">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% @supports.newest_tours.each_with_index do |tour, index| %>
+            <li data-target= "#myCarousel" data-slide-to="<%= index %>"
+              class="<%= 'active' if index == 0 %>"></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <% @supports.newest_tours.each_with_index do |tour, index| %>
+            <div class="item <%= "active" if index == 0 %>">
+              <%= image_tag "hoi_an.jpg" %>
+              <div class="carousel-caption">
+                <h3 class="tour-name"><%= tour.name %></h3>
+                <p class="tour-read-more"><%= link_to t(".read_more"),
+                  tour_path(tour), class: "btn text-uppercase read-more" %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div class="row tours">
+  <div class="col-md-12">
+    <h3 class="title"><%= t ".hotest_tours" %></h3>
+  </div>
+  <%= render @supports.hotest_tours %>
+</div>
+
+<div class="row tours">
+  <div class="col-md-12">
+    <h3 class="title"><%= t ".cheapest_tours" %></h3>
+  </div>
+  <%= render @supports.cheapest_tours %>
+</div>
+
+<div class="row places">
+  <div class="col-md-12">
+    <h3 class="title"><%= t ".popular_places" %></h3>
+  </div>
+  <%= render @supports.popular_places %>
+</div>

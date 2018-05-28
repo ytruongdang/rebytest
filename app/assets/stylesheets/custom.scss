@@ -1,0 +1,718 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+body.customer {
+  font-family: "brandon-grotesque", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 50px;
+
+  .custom-nav {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+      margin-left: 25%;
+    }
+  }
+
+  .omb_authTitle {
+    text-align: center;
+    line-height: 300%;
+  }
+
+  .omb_socialButtons a {
+    color: white;
+    opacity:0.9;
+  }
+  .omb_socialButtons a:hover {
+    color: white;
+    opacity:1;
+  }
+
+  .omb_btn-facebook {
+    background: #3b5998;
+  }
+
+  .omb_btn-twitter {
+    background: #00aced;
+  }
+
+  .omb_btn-google {
+    background: #c32f10;
+  }
+
+  h1 {
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* Navigation */
+   .navbar-inverse {
+    background-color: #383E4C;
+    border-color: #383E4C;
+  }
+  .navbar-nav > li {
+    padding: 5px;
+  }
+
+  .navbar-inverse .navbar-nav > li > a {
+    background: #383E4C none repeat scroll 0 0;
+    border: 1px solid #646d7c;
+    color: #fff ;
+    font-size: 18px;
+    padding: 12px 22px;
+    text-decoration: none;
+    text-transform: capitalize;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 2rem;
+  }
+
+  .navbar-inverse .navbar-nav > li > a.current,
+  .navbar-inverse .navbar-nav > li > a:hover {
+    background: #49505F;
+  }
+
+  .navbar-nav > li > a {
+    line-height: 15px;
+  }
+
+  .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+  }
+
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+
+  .single-page-nav {
+    text-align: right;
+  }
+
+  .fbt {
+    font-size:25px;
+    color: #FF0;
+  }
+  /* End Navigation*/
+
+  /* Start Main Menu */
+  ul#menu {
+    background: #40475A none repeat scroll 0 0;
+    padding: 6px;
+    position: fixed;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    z-index: 999;
+  }
+
+  .main-menu {
+    margin-top: -234px;
+  }
+
+  .main-menu ul li {
+    display: inline-block;
+    padding: 10px;
+  }
+
+  .main-menu ul li a {
+    background: #383E4C none repeat scroll 0 0;
+    border: 1px solid #646d7c;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+
+  /*.main-menu ul li.active a,*/
+  .main-menu ul li a:focus,
+  .main-menu ul li a:hover {
+    background: #49505F;
+  }
+
+  .header-content  h1 {
+    color: #fff;
+    font-size: 70px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #000;
+  }
+
+  .header-content h4 {
+    color: #fff;
+    font-size: 25px;
+    text-shadow: 1px 1px #333;
+  }
+  /* End Header CSS */
+
+  /* Start Footer CSS */
+  .footer-content  h1 {
+    color: #666;
+    font-size: 32px;
+    font-style: italic;
+    margin-bottom: 25px;
+    margin-top: 35px;
+  }
+
+  .footer-content  p {
+    color: #999;
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+
+  .copy {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+
+  /* Slide */
+  #myCarousel {
+    height: 500px;
+    .carousel-inner {
+      max-height: 500px;
+      .item {
+        max-height: 500px;
+        .carousel-caption {
+          height: 100%;
+          padding: 25% 0;
+          .tour-name {
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 25px;
+            text-shadow: 0px 0px 3px #000;
+          }
+          .read-more {
+            border: 2px solid white;
+            padding: 7px 15px;
+            border-radius: 6px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+            &:hover {
+              box-shadow: 0px 0px 5px #000;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Show tours */
+  .tours {
+    border-bottom: 1px solid #CCC;
+    .tour {
+      margin-bottom: 10px;
+      .tour-picture {
+        width: 100%;
+        height: 300px;
+        img {
+          width: 100%;
+          max-height: 300px;
+        }
+      }
+      .info {
+        .tour-name {
+          text-align: center;
+          font-size: 18px;
+          font-weight: bold;
+          padding: 5px 0;
+          margin: 0;
+          color: #5054C2;
+        }
+        .price {
+          color: #F00F0F;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .places {
+    border-bottom: 1px solid #CCC;
+    .place {
+      margin-bottom: 10px;
+      .place-picture {
+        width: 100%;
+        height: 300px;
+        img {
+          width: 100%;
+          max-height: 300px;
+        }
+      }
+      .info {
+        .place-name {
+          text-align: center;
+          font-size: 18px;
+          font-weight: bold;
+          padding: 5px 0;
+          margin: 0;
+          color: #5054C2;
+        }
+      }
+    }
+  }
+
+  /* Review */
+  .review {
+    padding-top: 50px;
+  }
+
+  .review-information {
+    .picture {
+      margin-bottom: 10px;
+      img {
+        width: 100%;
+      }
+    }
+    .information {
+      margin-bottom: 10px;
+      .tour-name {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 5px 0;
+        margin: 0;
+        color: #5054C2;
+      }
+    }
+  }
+
+  .review-details {
+    .review-content {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #000;
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 5px 0;
+        margin: 0;
+        color: #E33D3D;
+      }
+      .content {
+        padding: 5px 0;
+      }
+    }
+    .review-comments {
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 5px 0;
+        margin: 0;
+        color: #000191;
+      }
+      .comment {
+        background-color: #fff;
+      }
+
+      .sub-comment {
+        margin-left: 35px;
+      }
+    }
+  }
+
+  .review-form {
+    textarea {
+      resize: vertical;
+    }
+  }
+
+  /* show tour detail */
+  .tour_title {
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-family: "Lato", Arial, sans-serif;
+    color: #3a3a32;
+    font-weight: normal;
+  }
+
+  .review_title {
+    text-transform: capitalize;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #A1A6AA;
+    margin: 0;
+    padding-top: 20px;
+  }
+
+  .custom_reviews {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #6fa8dc;
+  }
+
+  .status_available {
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    padding: .1rem 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: #7ac483;
+  }
+
+  .status_unavailable {
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    padding: .1rem 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: #FF0000;
+  }
+
+  .fa-stack {
+    color:yellow;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: orange;
+  }
+
+  .review_post {
+    position: relative;
+    margin: 10px 0 45px 0;
+    padding: 10px;
+    border: 1px solid #ECF0F1;
+  }
+
+  .tour_description {
+    padding: 10px;
+  }
+
+  .ave_star {
+    color: #f4b400;
+  }
+
+  .like, .unlike {
+    color: #4F83E4;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .body-booking {
+    text-align: left;
+  }
+
+  .label {
+    font-size: 83%;
+  }
+
+  .filter-tour {
+    padding-top: 50px;
+    .tours {
+      border: none;
+      border-left: 1px solid #CCC;
+      .tour {
+        padding: 10px 0 0 0;
+        border-bottom: 1px dashed #CCC;
+        &:hover {
+          box-shadow: 0 0 5px #08C;
+          border-radius: 5px;
+        }
+        .picture {
+          margin-bottom: 10px;
+          img {
+            max-width: 100%;
+          }
+        }
+        .tour-name {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        .price {
+          font-size: 20px;
+          color: #F00;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .search-form {
+    padding: 5px 0;
+    .input-group {
+      .keyword {
+        border-radius: 2rem 0 0 2rem;
+      }
+      .btn-submit {
+        border-radius: 0 2rem 2rem 0;
+      }
+    }
+  }
+
+  .edit-review {
+    padding: 5 px;
+  }
+}
+
+body.admin {
+  .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+    height: auto;
+  }
+
+  .button-add {
+    margin-bottom: 15px;
+  }
+
+  .user-avatar .user-image {
+    width: 45px;
+    height: 45px;
+  }
+
+  .alert-notice {
+    background-color: #00a65a;
+    border-color: #008d4c;
+    border-radius: 3px;
+    color: #fff;
+  }
+
+  .pull-bottom {
+    margin-bottom: 20px;
+  }
+
+  .booking-title {
+    margin-top: 10px;
+  }
+
+  .table-places{
+    td {
+      vertical-align: baseline;
+    }
+
+    img {
+     width: 150px;
+    }
+
+    .picture_place{
+      width: 15%;
+    }
+
+    .button {
+      width: 5%;
+    }
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .label-region, .label-news {
+    background-color: #dd5b99;
+  }
+
+  .label-city, .label-food {
+    background-color: #f39c12;
+  }
+
+  .label-place {
+    background-color: #00a65a;
+  }
+
+  .table-tours {
+    img {
+     width: 150px;
+    }
+
+    .status-available, .status-unavailable {
+      color: white;
+      padding: 3px 5px;
+      border-radius: 10px;
+    }
+
+    .status-available {
+      background: #39BF5B;
+    }
+
+    .status-unavailable {
+      background: #DE233E;
+    }
+  }
+
+  .tour-detail {
+    .picture {
+      img {
+        max-width: 100%;
+        padding: 10px 0;
+      }
+    }
+    .status-available, .status-unavailable {
+      color: white;
+      padding: 3px 5px;
+      border-radius: 10px;
+    }
+
+    .status-available {
+      background: #39BF5B;
+    }
+
+    .status-unavailable {
+      background: #DE233E;
+    }
+
+    .tour-date {
+      margin: 0 5px;
+      background: #FF0;
+      padding: 3px 5px;
+      font-weight: bold;
+    }
+
+    .breadcrumb > span + span:before {
+      content: "\00BB";
+      color: #333;
+      padding: 0 10px;
+    }
+
+    .tour-place {
+      color: #268433;
+      font-weight: bold;
+    }
+  }
+
+  .field {
+    margin-bottom: 10px;
+  }
+
+  .review {
+    padding-top: 50px;
+  }
+
+  .review-information {
+    .picture {
+      margin-bottom: 10px;
+      img {
+        width: 100%;
+      }
+    }
+    .information {
+      margin-bottom: 10px;
+      .tour-name {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 5px 0;
+        margin: 0;
+        color: #5054C2;
+      }
+    }
+    .ave_star {
+      color: #f4b400;
+    }
+  }
+
+  .review-details {
+    .review-content {
+      padding-bottom: 10px;
+      .content {
+        padding: 5px 0;
+      }
+    }
+  }
+
+  #filter-form {
+    margin-bottom: 10px;
+  }
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.alert {
+  margin-bottom: 0px;
+}
+
+.status_waiting_pay {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 85%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background: #5bc0de;
+}
+
+.status_paid {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 85%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background: #337ab7;
+}
+
+.status_approve {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 85%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background: #5cb85c;
+}
+
+.status_reject {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 85%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background: #dd4b39;
+}
+
+.status_cancel {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 85%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background: #f39c12;
+}
+
+.push_down {
+  margin-top: 10px;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.cancelling {
+  float: left;
+}

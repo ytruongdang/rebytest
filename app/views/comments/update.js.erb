@@ -1,0 +1,4 @@
+$('.modal-backdrop').remove();
+$('.comment-list').html('<%= j render @supports.comments %>');
+$('.comment-form').html('<%= j render "comments/form" %>');
+$('#comment_content').focus();

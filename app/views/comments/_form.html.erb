@@ -1,0 +1,16 @@
+<div class="box-footer comment-form">
+  <% if user_signed_in? %>
+    <%= form_for [@tour, @review, @supports.comment], remote: true do |f| %>
+      <div class="form-group">
+        <%= render "shared/error_messages", object: f.object %>
+      </div>
+      <%= f.hidden_field :parent_id %>
+      <%= f.text_field :content, class: "form-control input-sm",
+        placeholder: t(".placeholder_comment") %>
+    <% end %>
+  <% else %>
+    <%= t ".please" %>
+    <%= link_to t(".login"), new_user_session_path %>
+    <%= t ".to_comment" %>
+  <% end %>
+</div>

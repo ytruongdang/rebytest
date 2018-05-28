@@ -1,0 +1,6 @@
+$('.comment-list').html('<%= j render @supports.comments %>');
+$('.pagination').html('<%= j will_paginate @supports.comments %>'
+  .replace(/comments/g,''));
+$('.comment-count').html('<%= @supports.comments.count %>');
+$('.comment-form').html('<%= j render "comments/form" %>');
+$('#comment_content').focus();

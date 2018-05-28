@@ -1,0 +1,26 @@
+<%= form_for @place, html: {multipart: true}, url: yield(:url_path) do |f| %>
+  <div class="form-group">
+    <%= render "shared/error_messages", object: f.object %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".picture") %>
+    <%= f.file_field :picture %>
+  </div>
+  <div class="form-group">
+    <%= f.label t("admin.places.types.type") %>
+    <%= f.select :place_type, options_for_select(@supports.place_types,
+      @place.place_type), {}, class: "form-control", id: "place_type_filter" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".parent") %>
+    <%= f.select :parent_id, options_from_collection_for_select(@supports
+      .parent_places, :id, :name, @place.parent_id),
+      {include_blank: t(".select_parent_place")},
+      class: "form-control", id: "parent_id_filter" %>
+  </div>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

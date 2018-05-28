@@ -1,0 +1,21 @@
+<% provide :title, t(".title") %>
+
+<div class="row filter-tour">
+  <div class="col-sm-3 filter-form">
+    <%= render "filter_form" %>
+  </div>
+  <div class="col-sm-9 tours">
+    <% if @tours.any? %>
+      <% @tours.each do |tour| %>
+        <%= render "filtered_tour", tour: tour %>
+      <% end %>
+    <% else %>
+      <div class="alert alert-info"><%= t ".nothing_to_show" %></div>
+    <% end %>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <%= will_paginate @tours %>
+      </div>
+    </div>
+  </div>
+</div>

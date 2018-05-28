@@ -1,0 +1,140 @@
+function createOption(value, display){
+  return '<option value="' + value + '">' + display + '</option>';
+}
+
+$(function(){
+  $(document).on('click', '.like', function(e){
+    $(this).attr('disabled', 'disabled');
+    var klass = $(this).attr('data-klass');
+    var object_id = $(this).attr('data-object-id');
+    $.ajax({
+      url: '<%= Rails.application.class.routes.url_helpers.likes_path %>',
+      type: 'POST',
+      data: {klass: klass, object_id: object_id},
+      success: function(data){
+        $(this).removeAttr('disabled');
+      }
+    });
+  });
+
+  $(document).on('click', '.unlike', function(e){
+    $(this).attr('disabled', 'disabled');
+    var url = $(this).attr('data-url');
+    $.ajax({
+      url: url,
+      type: 'DELETE',
+      success: function(data){
+        $(this).removeAttr('disabled');
+      }
+    });
+  });
+
+  $('.btn-tree').on('click', function (e) {
+    var child = $(this).find('i').first();
+    if(child.hasClass('fa-plus')){
+      child.removeClass('fa-plus').addClass('fa-minus');
+    } else {
+      child.removeClass('fa-minus').addClass('fa-plus');
+    }
+  });
+
+  $(document).on('click', '.remove_fields', function(e){
+    e.preventDefault();
+    var field = $(this).parent();
+    field.find('.destroy').attr('value', '1');
+    field.hide();
+  });
+
+  $(document).on('click', '.add_field', function(e){
+    e.preventDefault();
+    var new_id = new Date().getTime();
+    var association = $(this).data('association');
+    var regexp = new RegExp('new_' + association,'g');
+    $('.' + association).append($(this).data('field').replace(regexp, new_id));
+    $('.' + association).children('.field').last().find('.datepicker').datepicker({
+      format: I18n.t('datepicker.format')
+    });
+    $('.' + association).children('.field').last().find('.select2').select2();
+  });
+});
+
+$(document).on('turbolinks:load', function(){
+  $('.ckeditor').each(function(){
+    var name = $(this).attr('id');
+    if(CKEDITOR.instances[name]){
+      CKEDITOR.instances[name].destroy();
+    }
+    CKEDITOR.replace(name);
+  });
+
+  $('.num-tourist').change(function(){
+    $num_tourist = $('.num-tourist').val();
+    $price = $('.price_per_person').val();
+    if($.isNumeric($num_tourist)){
+      $total_price = $num_tourist * $price
+      $('.total_price').val($total_price);
+    }else{
+      alert(I18n.t('booking.number_tourist'));
+      $('.num-tourist').val('');
+    }
+  });
+
+  $('#customButton').on('click', function(e) {
+    e.preventDefault();
+
+    var handler = StripeCheckout.configure({
+      key: '<%= ENV["STRIPE_PUBLIC_KEY"] %>',
+      token: function(token, args) {
+        $('#stripeToken').val(token.id);
+        $('#stripeEmail').val(token.email);
+        $('#new_payment').submit();
+      }
+    });
+
+    $amount = $('#total_price').val();
+    $tourist = $('#number_tourist').val();
+    handler.open({
+      name: I18n.t('booking.payment'),
+      description: $tourist + I18n.t('booking.tourist'),
+      amount: $amount*100
+    });
+  });
+
+  $('#place_type_filter').on('change', function(){
+    var first_option = $('#parent_id_filter option').first();
+    var option = createOption(first_option.attr('value'), first_option.text());
+    $('#parent_id_filter').html(option);
+    var value = $(this).val();
+    if(value != 'region') {
+      $.ajax({
+        url: '<%= Rails.application.class.routes.url_helpers.admin_places_path :json %>',
+        data: {place_type: value},
+        success: function(data){
+          var options = '';
+          $.each(data, function(index, place){
+            options += createOption(place.id, place.name);
+          });
+          $('#parent_id_filter').append(options);
+        }
+      });
+    }
+  });
+
+  $('.datepicker').datepicker({
+    format: I18n.t('datepicker.format')
+  });
+
+  $('.input-daterange').datepicker({
+    format: I18n.t('datepicker.format')
+  });
+
+  $('.cancel-btn').on('click', function(e){
+    $form = $(this).closest('form');
+    e.preventDefault();
+    $('.cancel').on('click', function(e){
+      $form.trigger('submit');
+    });
+  });
+
+  $('.select2').select2();
+});

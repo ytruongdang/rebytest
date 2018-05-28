@@ -1,0 +1,18 @@
+<tr>
+  <td><%= booking.contact_name %></td>
+  <td><%= booking.contact_phone %></td>
+  <td><%= booking.contact_address %></td>
+  <td><%= booking.num_tourist %></td>
+  <td><%= booking.total_price %></td>
+  <td><p class="status_<%= booking.status %>" >
+    <%= booking.status %></p>
+    <% if booking.is_cancel? %>
+      <p class="status_cancel"><%= t ".cancelling" %></p>
+    <% end %>
+  </td>
+  <td><%= l booking.created_at %></td>
+  <td>
+    <%= link_to t(".view"), admin_booking_path(booking),
+      class: "btn btn-info" %>
+  </td>
+</tr>

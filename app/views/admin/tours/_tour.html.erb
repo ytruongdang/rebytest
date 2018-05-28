@@ -1,0 +1,13 @@
+<tr>
+  <td><%= image_tag tour.picture.url if tour.picture? %></td>
+  <td><%= tour.name %></td>
+  <td><%= number_to_currency tour.price_per_person %></td>
+  <td><%= tour.num_people %></td>
+  <td><%= pluralize tour.duration, t(".day") %></td>
+  <td><%= tour.discount %> %</td>
+  <td><span class="status-<%= tour.status %>"><%= tour.status %></span></td>
+  <td>
+    <%= link_to t(".detail"), admin_tour_path(tour),
+      class: "btn btn-info" %>
+  </td>
+</tr>

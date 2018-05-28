@@ -1,0 +1,7 @@
+<div class="form-group col-md-12 field">
+  <%= f.label t(".select_place") %>
+  <%= f.select :place_id, options_for_select(places, f.object.place_id),
+    {include_blank: true}, class: "form-control select2" %>
+  <%= f.hidden_field :_destroy, class: "destroy" %>
+  <%= link_to t(".remove"), "#", class: "remove_fields" %>
+</div>

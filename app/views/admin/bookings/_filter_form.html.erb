@@ -1,0 +1,22 @@
+<%= form_tag admin_bookings_path, method: :get, remote: :true do %>
+  <div class="col-md-2">
+    <%= select_tag :status_eq,
+      options_for_select(@supports.load_status, params[:status_eq]),
+      include_blank: t(".all_status") ,class: "form-control" %>
+  </div>
+  <div class="input-daterange">
+    <div class="col-md-3">
+      <%= text_field_tag :created_at_gteq,
+        value = params[:created_at_gteq],
+        class: "form-control", placeholder: t(".start_date") %>
+    </div>
+    <div class="col-md-3">
+      <%= text_field_tag :created_at_lteq,
+        value = params[:created_at_lteq],
+        class: "form-control", placeholder: t(".end_date") %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <%= submit_tag t(".filter"), class: "btn btn-info filter-booking" %>
+  </div>
+<% end %>

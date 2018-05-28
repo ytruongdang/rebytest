@@ -1,0 +1,43 @@
+<header class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+        data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to root_path do %>
+        <span class="navbar-brand fbt"><%= t "fbt" %></span>
+      <% end %>
+    </div>
+    <nav class="collapse navbar-collapse single-page-nav sticky-wrapper" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= form_tag tours_path, class: "search-form", method: :get do %>
+            <div class="input-group">
+              <%= text_field_tag :name_or_category_name_or_places_name_cont,
+                params[:name_or_category_name_or_places_name_cont],
+                class: "form-control keyword", placeholder: t(".search") %>
+              <span class="input-group-btn">
+                <%= button_tag type: "submit",
+                  class: "btn btn-default btn-submit" do %>
+                  <i class="fa fa-search"></i>
+                <% end %>
+              </span>
+            </div>
+          <% end %>
+        </li>
+        <li><%= link_to t(".home"), root_path %></li>
+        <li><%= link_to t(".tours"), tours_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to t(".profile"), user_path %></li>
+          <li><%= link_to t(".logout"), destroy_user_session_path,
+            method: :delete %></li>
+        <% else %>
+          <li><%= link_to t(".login"), new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

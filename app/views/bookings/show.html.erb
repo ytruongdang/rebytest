@@ -1,0 +1,103 @@
+<% provide :title, t(".title") %>
+<div class="row push_down">
+  <div class="col-xs-2">
+  </div>
+  <div class="col-xs-6">
+    <p class="lead booking-title"><%= t ".title" %></p>
+
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th><%= t ".contact_name" %></th>
+          <td><%= @booking.contact_name %></td>
+        </tr>
+        <tr>
+          <th><%= t ".contact_phone" %></th>
+          <td><%= @booking.contact_phone %></td>
+        </tr>
+        <tr>
+          <th><%= t ".contact_address" %></th>
+          <td><%= @booking.contact_address %></td>
+        </tr>
+        <tr>
+          <th><%= t ".num_tourist" %></th>
+          <td><%= @booking.num_tourist %></td>
+        </tr>
+        <tr>
+          <th><%= t ".total_price" %></th>
+          <td><%= @booking.total_price %></td>
+        </tr>
+        <tr>
+          <th><%= t ".tour_booking" %></th>
+          <td><%= @booking.tour_date.tour.name %></td>
+        </tr>
+        <tr>
+          <th><%= t ".start_date" %></th>
+          <td><%= @booking.tour_date.start_date %></td>
+        </tr>
+        <tr>
+          <th><%= t ".status" %></th>
+          <td><%= @booking.status %></td>
+        </tr>
+        <tr>
+          <th><%= t ".created_at" %></th>
+          <td><%= l @booking.created_at %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <p class="lead booking-title"><%= t ".update_booking" %></p>
+    <% if @booking.waiting_pay? %>
+      <div class="col-md-6">
+      <%= form_for @payment do |f| %>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+        <%= f.hidden_field :booking_id, value: @booking.id %>
+        <%= hidden_field_tag :stripeToken %>
+        <%= hidden_field_tag :stripeEmail %>
+        <%= hidden_field_tag :total_price, @booking.total_price %>
+        <%= hidden_field_tag :number_tourist, @booking.num_tourist %>
+        <button id="customButton" class="btn btn-success" >
+          <i class="fa fa-credit-card"></i><%= t ".payment_continue" %>
+        </button>
+      <% end %>
+      </div>
+    <% end %>
+    <% unless @booking.reject? || @booking.approve? %>
+      <div class="con-md-6">
+      <%= form_for @booking do |f| %>
+        <%= f.hidden_field :is_cancel, value: true %>
+        <%= button_tag class: "btn btn-warning cancel-btn",
+          data: {toggle: "modal", target: "#myModal"},
+          disabled: @booking.is_cancel? do %>
+          <i class="fa fa-ban"></i> <%= t ".cancel_tour" %>
+        <% end %>
+      <% end %>
+      </div>
+    <% end %>
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close"
+              data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><%= t ".confirm" %></h4>
+          </div>
+          <div class="modal-body">
+            <p><%= t ".content_confirm" %></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger cancel"
+              data-dismiss="modal"><%= t ".cancel_tour" %></button>
+            <button type="button" class="btn btn-default"
+              data-dismiss="modal"><%= t ".close" %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal"
+  aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="panel panel-primary margin-bottom-0">
+        <div class="panel-heading"><%= t ".update_discount" %></div>
+        <div class="row panel-body">
+          <div class="col-md-10 col-md-offset-1">
+            <%= form_for [:admin, @tour], remote: :true do |f| %>
+              <div class="form-group errors">
+                <%= render "shared/error_messages", object: f.object %>
+              </div>
+              <div class="form-group">
+                <%= f.label t(".discount") %>
+                <div class="input-group">
+                  <%= f.text_field :discount, class: "form-control" %>
+                  <span class="input-group-addon">%</span>
+                </div>
+              </div>
+              <%= f.submit t(".update"), class: "btn btn-primary" %>
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                <%= t ".close" %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

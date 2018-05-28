@@ -1,0 +1,24 @@
+<td>
+  <% unless place.leaf? %>
+    <button data-toggle="collapse" data-parent="#table_places"
+      data-target=".place-<%= place.id %>" class="btn btn-box-tool btn-tree"
+      type="button">
+      <i class="fa fa-plus"></i>
+    </button>
+  <% end %>
+</td>
+<td><%= image_tag place.picture.url if place.picture? %></td>
+<td><%= place.name %></td>
+<td>
+  <span class="label label-<%= place.place_type %>">
+    <%= place.place_type %>
+  </span>
+</td>
+<td>
+  <%= link_to t(".edit"), edit_admin_place_path(place),
+    class: "btn btn-info" %>
+</td>
+<td>
+  <%= link_to t(".delete"), admin_place_path(place), class: "btn btn-danger",
+    method: :delete, data: {confirm: t("data.confirm")} %>
+</td>

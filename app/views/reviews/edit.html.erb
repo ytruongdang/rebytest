@@ -1,0 +1,26 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+<div class="col-md-8 col-md-offset-2">
+  <%= form_for [@tour, @review], html: {class: "review-form"} do |f| %>
+    <div class="form-group">
+      <%= render "shared/error_messages", object: f.object %>
+    </div>
+    <div class="form-group">
+      <%= f.label :review_type %>
+      <%= f.select :review_type,
+        options_for_select(@review_types, @review.review_type),
+        {}, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, value: @review.title,
+        class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :content %>
+      <%= f.text_area :content, value: @review.content,
+        class: "form-control ckeditor" %>
+    </div>
+    <%= f.submit t(".title"), class: "btn btn-primary" %>
+  <% end %>
+</div>

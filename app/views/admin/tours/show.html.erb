@@ -1,0 +1,56 @@
+<% provide :title, @tour.name %>
+
+<div class="row tour-detail">
+  <div class="col-md-12">
+    <% if @tour.picture? %>
+      <div class="col-md-4">
+        <div class="picture"><%= image_tag @tour.picture %></div>
+      </div>
+      <div class="col-md-8">
+    <% else %>
+      <div class="col-md-12">
+    <% end %>
+      <div class="col-md-12 box-header text-right">
+        <%= link_to t(".edit"), edit_admin_tour_path(@tour),
+          class: "btn btn-info" %>
+        <%= link_to t(".delete"), admin_tour_path(@tour),
+          method: :delete, class: "btn btn-danger",
+          data: {confirm: t("data.confirm")} %>
+      </div>
+      <h3 class="title"><%= @tour.name %></h3>
+      <p><strong><%= t ".status" %></strong>
+        <span class="status-<%= @tour.status %>">
+          <%= t "status.#{@tour.status}" %>
+        </span>
+      </p>
+      <p><strong><%= t ".category" %></strong> <%= @tour.category.name %></p>
+      <p><strong><%= t ".duration" %></strong>
+        <%= pluralize @tour.duration, t(".day") %></p>
+      <p><strong><%= t ".start_dates" %></strong></p>
+      <p>
+        <% @tour.tour_dates.each do |date| %>
+          <span class="tour-date"><%= l date.start_date %></span>
+        <% end %>
+      </p>
+      <p><strong><%= t ".price" %></strong>
+        <%= number_to_currency @tour.price_per_person %></p>
+      <p><strong><%= t ".num_people" %></strong> <%= @tour.num_people %></p>
+      <p><strong><%= t ".discount" %></strong>
+        <span class="discount"><%= @tour.discount %> %</span>
+        <%= button_tag t(".update"), class: "btn btn-primary",
+        data: {toggle: "modal", target: "#myModal"} %></p>
+    </div>
+    <div class="col-md-12">
+      <p><strong><%= t ".tour_places" %></strong>
+        <p class="breadcrumb">
+          <% @tour.tour_places.each do |tour_place| %>
+            <span class="tour-place"><%= tour_place.place.name %></span>
+          <% end %>
+        </p>
+      </p>
+      <p><strong><%= t ".description" %></strong></p>
+      <p><%= @tour.description.html_safe %></p>
+    </div>
+  </div>
+</div>
+<%= render "discount_modal" %>

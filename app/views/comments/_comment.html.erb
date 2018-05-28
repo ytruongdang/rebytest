@@ -1,0 +1,66 @@
+<div class="box-footer box-comments comment" id="comment-<%= comment.id %>">
+  <div class="box-comments comment">
+    <%= gravatar_for comment.user, "direct-chat-img" %>
+    <div class="direct-chat-text">
+      <span class="username">
+        <%= comment.user.name %>
+        <span class="text-muted pull-right">
+          <%= time_ago_in_words comment.created_at
+            .in_time_zone(t "time.zone") %> <%= t ".ago" %>
+        </span>
+      </span>
+      <%= comment.content %>
+      <p>
+        <%= render "likes/like", object: comment %>
+        <%= link_to t(".reply_up"), tour_review_new_comment_path(@tour,
+          @review, comment), remote: true, class: "reply-comment" %>
+        <% unless comment.leaf? %>
+          <i><%= link_to pluralize(comment.children.count, t(".reply_down")),
+            tour_review_show_sub_comment_path(@tour, @review, comment),
+            remote: true %></i>
+        <% end %>
+        <% if can? :update, comment %>
+          <%= link_to t(".edit"),
+            edit_tour_review_comment_path(@tour, @review, comment),
+            data: {toggle: "modal", target: "#edit_comment_#{comment.id}"} %>
+        <% end %>
+        <% if can? :destroy, comment %>
+          <%= link_to t(".delete"),
+            tour_review_comment_path(@tour, @review, comment),
+            method: :delete, remote: true,
+            data: {confirm: t("data.confirm")} %>
+        <% end %>
+      </p>
+    </div>
+    <div class="sub-comment">
+      <div class="reply-<%= comment.id %>"></div>
+      <div class="sub-comment-<%= comment.id %>"></div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="edit_comment_<%= comment.id %>" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;
+        </button>
+        <h4 class="modal-title"><%= t ".edit_comment" %></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for [@tour, @review, comment], remote: true do |f| %>
+          <div class="form-group">
+            <%= render "shared/error_messages", object: f.object %>
+          </div>
+          <%= f.text_area :content, class: "form-control input-sm",
+            placeholder: t("comments.form.placeholder_comment") %>
+          <%= f.submit t(".submit") , class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <%= t ".close" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

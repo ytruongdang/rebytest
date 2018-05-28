@@ -1,0 +1,537 @@
+en:
+  fbt: "Booking Tours"
+  static_pages:
+    home:
+      read_more: "Read more..."
+      hotest_tours: "Hotest tours"
+      cheapest_tours: "Cheapest tours"
+      popular_places: "Most popular places"
+  layouts:
+    base_title: "Framgia Booking Tours"
+    header:
+      login: "Login"
+      home: "Homepage"
+      tours: "Tours"
+      profile: "Profile"
+      logout: "Logout"
+      search: "Search..."
+    footer:
+      description: "Framgia Booking Tour"
+      sub_title1: "Framgia Booking Tour provides many land tours and
+        cruise tours in the most popular destinations of Vietnam,
+        Laos and Cambodia"
+      sub_title2: "A Vietnam tour specialist for over 11 years,
+        Vietnam Tour Booking understands your concern and the value of your vacation.
+        No matter what your goal is the culture, the sight, or adventure
+        we are here to help you create your own unique Vietnam tour.
+        'Xin chào and welcome to Vietnam' "
+      copyright: "Copyright © Flash Black Sun"
+    admin:
+      header:
+        logo_mini: "FBS"
+        logo_lg: "Flash Black Sun"
+        change_password: "Change password"
+      sidebar:
+        manager: "MANAGER"
+        users: "Users"
+        categories: "Categories"
+        tours: "Tours"
+        booking_requests: "Booking requests"
+        user_reviews: "User reviews"
+        revenue: "Revenue"
+        places: "Places"
+  shared:
+    error_messages:
+      form_error: "The form contains"
+      shared_error: "error"
+      cant_be_empty: "can't be empty"
+  admin:
+    users:
+      index:
+        title: "User management"
+        add_user: "Add user"
+        name: "Name"
+        email: "Email"
+        phone: "Phone"
+        avatar: "Avatar"
+        address: "Address"
+        edit: "Edit"
+        delete: "Delete"
+      search_form:
+        search: "Search"
+        placeholder_user: "Enter email to search"
+        name_or_email: "Name or email: "
+        phone: "Phone: "
+      new:
+        title: "Add user"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+      edit:
+        title: "Edit information"
+        button: "Submit"
+        title: "Edit user"
+    bookings:
+      index:
+        title: "Booking management"
+        contact_name: "Contact name"
+        contact_phone: "Contact phone"
+        contact_address: "Contact address"
+        num_tourist: "Number tourist"
+        total_price: "Total price"
+        status: "Status"
+        created_at: "Created at"
+      booking:
+        view: "Detail"
+        cancelling: "cancelling"
+      show:
+        title: "Booking Detail"
+        update_status: "Update status"
+        return: "Return"
+        contact_name: "Contact name:"
+        contact_phone: "Contact phone:"
+        contact_address: "Contact address:"
+        num_tourist: "Number tourist:"
+        total_price: "Total price:"
+        tour_booking: "Tour booking:"
+        start_date: "Start date:"
+        status: "Status:"
+        cancel_request: "Cancel request:"
+        created_at: "Created at:"
+      filter_form:
+        filter: "Filter"
+        all_status: "All status"
+        start_date: "Start date"
+        end_date: "End date"
+      show_bookings:
+        contact_name: "Contact name:"
+        contact_phone: "Contact phone:"
+        contact_address: "Contact address:"
+        num_tourist: "Number tourist:"
+        total_price: "Total price:"
+        tour_booking: "Tour booking:"
+        start_date: "Start date:"
+        status: "Status:"
+        cancel_request: "Cancel request:"
+        created_at: "Created at:"
+    places:
+      types:
+        type: "Type"
+        region: "Region"
+        city: "City"
+        place: "Place"
+      new:
+        title: "Add place"
+      edit:
+        title: "Edit place"
+      form:
+        parent: "Parent"
+        name: "Name"
+        picture: "Picture"
+        select_parent_place: "--- Select parent place ---"
+      index:
+        title: "Place management"
+        name: "Name"
+        type: "Type"
+        search: "Search"
+        select: "Select"
+        place_type: "Place type"
+      place:
+        edit: "Edit"
+        delete: "Delete"
+    tours:
+      index:
+        title: "Tours management"
+        add_tour: "Add tour"
+        filter_tour: "Filter tour"
+        name: "Name"
+        price: "Price"
+        num_people: "Max people"
+        duration: "Duration"
+        discount: "Discount"
+        status: "Status"
+      tour:
+        detail: "Detail"
+        day: "day"
+      search_form:
+        select_status: "Select status"
+        enter_keyword: "Enter keyword"
+      statuses:
+        available: "Available"
+        unavailable: "Unavailable"
+      show:
+        name: "Name: "
+        category: "Category: "
+        price: "Price: "
+        num_people: "Max people: "
+        duration: "Duration: "
+        discount: "Discount: "
+        status: "Status: "
+        description: "Description: "
+        edit: "Edit"
+        delete: "Delete"
+        day: "day"
+        start_dates: "Start dates: "
+        tour_places: "Tour places: "
+      discount_modal:
+        update_discount: "Update discount"
+        discount: "Discount"
+        update: "Update"
+        close: "Close"
+      new:
+        title: "Add tour"
+      form:
+        name: "Name"
+        category: "Category"
+        price: "Price per person"
+        num_people: "Max people"
+        duration: "Duration"
+        discount: "Discount"
+        status: "Status"
+        description: "Description"
+        picture: "Picture"
+        start_dates: "Start dates"
+        tour_places: "Tour places"
+        add_tour_date: "Add tour date"
+        add_tour_place: "Add tour place"
+      tour_place_field:
+        select_place: "Select place"
+        remove: "Remove"
+      tour_date_field:
+        select_date: "Select date"
+        remove: "Remove"
+      edit:
+        title: "Edit tour"
+      filter_form:
+        tour_place_directory: "Tour or directory or place name"
+        start_date: "Start date"
+        num_people: "Number of people"
+        search: "Search"
+        from: "From"
+        to: "To"
+        price: "Price"
+        duration: "Duration"
+        order: "Order by"
+        rating: "Rating"
+        days: "day(s)"
+        per_person: "per person"
+    categories:
+      index:
+        title: "Category management"
+        name: "Name"
+        search: "Search"
+        new_category: "New category"
+        add_new: "Add new"
+        parent: "Parent"
+        select_parent_category: "Select parent category"
+        submit: "Submit"
+        close: "Close"
+      category:
+        edit: "Edit"
+        delete: "Delete"
+        edit_category: "Edit category"
+    reviews:
+      index:
+        title: "Review management"
+        review_title: "Title"
+        user: "User"
+        tour: "Tour"
+        rating: "Rating"
+        type: "Type"
+      review:
+        detail: "Detail"
+      show:
+        title: "Review detail"
+        review_for: "Review for"
+        review_by: "Review by"
+        review_at: "Review at"
+        rating: "Rating"
+        average_rating: "%{rate} / %{max_rate}"
+        delete: "Delete"
+  number:
+    currency:
+      format:
+        unit: "$"
+        delimiter: ","
+        separator: "."
+        precision: 1
+        format: "%u%n"
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  time:
+    zone: 7
+    formats:
+      default: "%d/%m/%Y %H:%M"
+  tours:
+    filtered_tour:
+      duration: "Duration:"
+      num_people: "Max people:"
+      from: "from"
+      per_person: "per person"
+      detail: "Detail"
+      category: "Category:"
+    filter_form:
+      tour_place_directory: "Tour or directory or place name"
+      start_date: "Start date"
+      num_people: "Number of people"
+      search: "Search"
+      from: "From"
+      to: "To"
+      price: "Price"
+      duration: "Duration"
+      order: "Order by"
+      rating: "Rating"
+      days: "day(s)"
+      per_person: "per person"
+    tour:
+      start_date: "Start date: "
+      price_per_person: "Price per person: "
+      end_date: "End date: "
+      num_people: "Max people: "
+    show:
+      start_date: "Start date: "
+      price_per_person: "Price per person: "
+      end_date: "End date: "
+      num_people: "Max people: "
+      description: "Description"
+      booking: "Booking"
+      customer_reviews: "Customer Reviews"
+      review_about: "review about"
+      created_at: "created at"
+      show_review: "more detail"
+      status: "Status: "
+      book_now: "BOOK NOW"
+      create_review: "Create Review"
+      duration: "Duration:"
+      day: "day"
+      your_rating: "Your rating: "
+      average: "Average rating: "
+      average_rating: "%{rate} / 5"
+      please_sign_in: "Please sign-in to booking tour "
+      click_here: "click here"
+      discount: "Discount: "
+      start_dates: "Start dates: "
+    index:
+      title: "Tours"
+      nothing_to_show: "Nothing to show"
+  status:
+    available: "available"
+    unavailable: "unavailable"
+  order_rules:
+    asc: "Ascending"
+    desc: "Descending"
+  flash:
+    access_denied: "Access denied."
+    find_category_fail: "Failed to find tour"
+    find_user_fail: "Failed to find user"
+    find_place_fail: "Failed to find place"
+    find_review_fail: "Failed to find review"
+    find_tour_fail: "Failed to find tour"
+    find_booking_fail: "Failed to find tour booking "
+    card_error: "Card that can’t be charged for some reason"
+    payment_success: "Payment success waiting for admin to approve"
+    users:
+      user_not_found: "User not found"
+      add_user_success: "Add user success."
+      update_user_success: "Update user success."
+      user_deleted: "User deleted."
+      user_cant_delete: "User can not delete."
+      change_password_success: "Change password success."
+    tours:
+      tour_not_found: "Tour not found"
+      add_tour_success: "Add tour success"
+      add_tour_fail: "Add tour fail"
+      delete_tour_success: "Delete tour success"
+      delete_tour_fail: "Delete tour fail"
+      update_success: "Update success"
+      update_fail: "Update fail"
+    reviews:
+      review_not_found: "Review not found"
+      create_review_success: "Create review success"
+      review_updated: "Review updated"
+      review_update_fail: "Review update fail"
+      review_deleted: "Review deleted"
+      review_delete_fail: "Review delete fail"
+    comments:
+      add_comment_success: "Comment added."
+      cant_add_comment: "Can't add comment."
+      comment_not_found: "Comment not found."
+      update_comment_success: "Comment updated."
+      cant_edit_comment: "Can't edit comment."
+      delete_comment: "Comment deleted."
+      cant_delete_comment: "Can't delete comment."
+    likes:
+      like_not_found: "Like not found"
+      like_success: "Like success"
+      like_fail: "Like fail"
+      unlike_success: "Unike success"
+      unlike_fail: "Unlike fail"
+    bookings:
+      create_booking_fail: "Booking failed"
+      booking_success: "Booking success"
+      booking_updated: "Booking request updated"
+      booking_update_fail: "Booking updated fail"
+      booking_not_found: "Canot find booking request"
+      booking_rejected: "Booking request rejected"
+      booking_approved: "Booking request approved"
+      booking_canceled: "Booking request canceled"
+      booking_cancel_fail: "Booking request cancel fail"
+      booking_cannot_approve: "Booking cannot approve"
+    places:
+      add_place_success: "Add place success."
+      edit_place_success: "Edit place success."
+      delete_place_success: "Delete place success."
+      place_cant_delete: "Can't delete place."
+    categories:
+      add_category_success: "Add category success."
+      cant_add_category: "Can't add category"
+      edit_category_success: "Edit category success."
+      cant_edit_category: "Can't edit category"
+      delete_category_success: "Delete category success."
+      category_cant_delete: "Can't delete category."
+    reviews:
+      review_deleted: "Review deleted."
+      cant_delete_review: "Can't delete review."
+  users:
+    show:
+      title: "User profile"
+  data:
+    confirm: "Are you sure?"
+  users:
+    show:
+      title: "User profile"
+      booking_request: "Booking Request"
+      update: "Update"
+  reviews:
+    show:
+      title: "Review details"
+      review_for: "Review for: "
+      review_by: "Review by: "
+      review_at: "Review at: "
+      comments: "Comments"
+      rating: "Rating: "
+      rate: "rate"
+      liked: "Liked: "
+      like: "like"
+      average: "Average rating: "
+      average_rating: "%{rate} / %{max_rate}"
+      your_rating: "Your rating: "
+    new:
+      title: "Create review"
+    index:
+      review_type: "Review type"
+      title: "Title"
+      rating: "Rating"
+      tour_name: "Tour name"
+      created-at: "Created at"
+      title: "Manage tour"
+    edit:
+      title: "Edit review"
+    review:
+      average_rating: "%{rate} / %{max_rate}"
+      view: "View detail"
+  likes:
+    like:
+      like: "Like"
+      unlike: "Unlike"
+  comments:
+    comment:
+      ago: "ago"
+      like: "Like"
+      reply_up: "Reply"
+      reply_down: "reply"
+      edit: "Edit"
+      delete: "Delete"
+      submit: "Submit"
+      edit_comment: "Edit comment"
+      close: "Close"
+    form:
+      please: "Please"
+      login: "login"
+      to_comment: "to comment."
+      placeholder_comment: "Type a comment"
+  ratyrate:
+    noRateMsg: "I'am readOnly and I haven't rated yet!"
+    hint: "hint"
+    left: "left"
+    cancel_hint: "Cancel current rating!"
+    targetFormat: "{score}"
+  bookings:
+    new:
+      title: "Booking Form"
+      submit: "Submit"
+      description_price: "Total price: (number tourist) x"
+      price: "(price)"
+    form_booking:
+      title: "Booking Form"
+      submit: "Booking now"
+      description_price: "Total price: (number tourist) x"
+      price: "(price)"
+    index:
+      title: "Booking request"
+      tour: "Tour"
+      start_date: "Start date"
+      duration: "Duration"
+      num_tourist: "Number tourist"
+      total_price: "Total price"
+      status: "Status"
+      created_at: "Created at"
+    booking:
+      day: "day"
+      view: View detail
+      cancelling: "cancelling"
+    show:
+      title: "Booking request"
+      contact_name: "Contact name:"
+      contact_phone: "Contact phone:"
+      contact_address: "Contact address:"
+      num_tourist: "Number tourist:"
+      total_price: "Total price:"
+      tour_booking: "Tour booking:"
+      start_date: "Start date:"
+      status: "Status:"
+      created_at: "Created at:"
+      payment_continue: "Payment continue"
+      cancel_tour: "Cancel now"
+      close: "Close"
+      content_confirm: "Are your sure to cancel this tour?"
+  payments:
+    new:
+      framgia: " Framgia"
+      date: "Date: "
+      from: "From"
+      admin: "Admin, Framgia"
+      admin_address: "434 Tran Khat Chan, Ha Noi"
+      admin_phone: "Phone: (084) 123-5432"
+      admin_email: "Email: bookingtour@framgia.com"
+      to: "To"
+      client_phone: "Phone: "
+      client_email: "Email: "
+      booking: "Booking"
+      booking_id: "Booking ID: "
+      payment_date: "Payment date: "
+      tour: "Tour"
+      duation: "Duration"
+      price_per_person: "Price per person"
+      start_date: "Start Date"
+      term_condition: "Terms and Conditions:"
+      condition_content: "We require full payment for all online bookings with
+        Framgia Tour Booking. The prices quoted in the website
+        www.framgiatourbooking.comare applied for direct payment by cash.
+        For Online payment, a transaction fee of 3% total booking
+        will be paid by the clients of Framgia Tour Booking."
+      payment_amount: "Payment amount"
+      number_tourist: "Number tourist: "
+      total: "Total:"
+      submit_payment: "Submit Payment"
+  booking:
+    number_tourist: "Number-tourist must be number"
+    max_tourist: "Number-tourist cannot great than max people"
+    payment: "Payment"
+    tourist: "tourist"
+  picture:
+    error_picture_size: "Should be less than 5MB"
+  datepicker:
+    format: "yyyy-mm-dd"
+  error:
+    num_tourist: "Number tourist cannot great than max people"

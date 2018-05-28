@@ -1,0 +1,7 @@
+<%= form_tag admin_categories_path, method: :get, class: "form-inline" do %>
+  <div class="form-group">
+    <%= label_tag :name_cont, t("admin.categories.index.name") %>
+    <%= text_field_tag :name_cont, params[:name_cont], class: "form-control" %>
+  </div>
+  <%= submit_tag t("admin.categories.index.search"), class: "btn btn-default" %>
+<% end %>

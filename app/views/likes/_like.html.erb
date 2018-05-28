@@ -1,0 +1,14 @@
+<span id="<%= object.class.name.downcase + object.id.to_s %>">
+  <% if user_signed_in? %>
+    <% if current_user.liked? object %>
+      <%= content_tag :span, @supports.like_title(object), class: "unlike",
+        data: {url: like_path(@supports.like(object).id)} %>
+    <% else %>
+      <%= content_tag :span, @supports.like_title(object), class: "like",
+        data: {klass: object.class.name, object_id: object.id} %>
+    <% end %>
+  <% else %>
+    <span class="like"><%= t ".like" %></span>
+  <% end %>
+  <span class="badge"> <%= object.likes.count %></span>
+</span>

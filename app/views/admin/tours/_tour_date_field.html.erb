@@ -1,0 +1,6 @@
+<div class="form-group col-md-12 field">
+  <%= f.label t(".select_date") %>
+  <%= f.text_field :start_date, class: "form-control datepicker" %>
+  <%= f.hidden_field :_destroy, class: "destroy" %>
+  <%= link_to t(".remove"), "#", class: "remove_fields" %>
+</div>

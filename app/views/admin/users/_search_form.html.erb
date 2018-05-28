@@ -1,0 +1,13 @@
+<%= form_tag admin_users_path, method: :get, class: "form-inline" do %>
+  <div class="form-group">
+    <%= label_tag :name_or_email_cont, t(".name_or_email") %>
+    <%= text_field_tag :name_or_email_cont, params[:name_or_email_cont],
+      class: "form-control" %><br>
+  </div>
+  <div class="form-group">
+    <%= label_tag :phone_cont, t(".phone") %>
+    <%= text_field_tag :phone_cont, params[:phone_cont],
+      class: "form-control" %><br>
+  </div>
+  <%= submit_tag t(".search"), class: "btn btn-default" %>
+<% end %>

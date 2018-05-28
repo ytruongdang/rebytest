@@ -1,0 +1,42 @@
+<% provide :title, t(".title") %>
+
+<div class="box-header">
+  <h1><%= @review.title %></h1>
+</div>
+<div class="box-body">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-sm-3 review-information">
+        <div class="information">
+          <p><strong><%= t ".review_for" %></strong>
+            <span class="tour-name"><%= @review.tour.name %></span>
+          </p>
+          <p class="review_by"><strong><%= t ".review_by" %></strong>
+            <%= @review.user.name %></p>
+          <p class="review_at"><strong><%= t ".review_at" %></strong>
+            <%= l @review.created_at %></p>
+          <p class="rating">
+            <strong><%= t ".rating" %></strong>
+            <i class="fa fa-star ave_star" aria-hidden="true"></i>
+            <%= t ".average_rating", rate: @review.rating,
+              max_rate: Settings.rates.max_star %>
+          </p>
+        </div>
+        <div class="edit-review">
+          <%= link_to admin_review_path(@review),
+            method: :delete, data: {confirm: t("data.confirm")} do %>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <%= t ".delete" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-sm-9 review-details">
+        <div class="review-content">
+          <div class="content">
+            <%= @review.content.html_safe %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

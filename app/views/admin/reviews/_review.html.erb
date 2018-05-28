@@ -1,0 +1,16 @@
+<tr>
+  <td><%= review.title %></td>
+  <td><%= review.user.name %></td>
+  <td><%= review.tour.name %></td>
+  <td><%= review.rating %></td>
+  <td>
+    <span class="label label-<%= review.review_type %>">
+      <%= review.review_type %>
+    </span>
+  </td>
+  <td><%= l review.created_at %></td>
+  <td>
+    <%= link_to t(".detail"), admin_review_path(review),
+      class: "btn btn-info" %>
+  </td>
+</tr>

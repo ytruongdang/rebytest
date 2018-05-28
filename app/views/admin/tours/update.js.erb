@@ -1,0 +1,9 @@
+<% if @tour.errors.any? %>
+  $('.errors').html('<%= j render("shared/error_messages", object: @tour) %>');
+  <% flash.delete :danger %>
+<% else %>
+  $('.discount').html('<%= @tour.discount %> %');
+  $('#myModal').modal('hide');
+  alert('<%= flash[:success] %>');
+  <% flash.delete :success %>
+<% end %>

@@ -1,0 +1,19 @@
+<% @supports.parent_comment.children.each do |child_comment| %>
+  <div class="box-footer box-comments comment"
+    id="comment-<%= child_comment.id %>">
+    <div class="box-comments comment">
+      <%= gravatar_for child_comment.user, "direct-chat-img" %>
+      <div class="direct-chat-text">
+        <span class="username">
+          <%= child_comment.user.name %>
+          <span class="text-muted pull-right">
+            <%= time_ago_in_words child_comment.created_at
+              .in_time_zone(t "time.zone") %> <%= t ".ago" %>
+          </span>
+        </span>
+        <%= child_comment.content %>
+        <p><%= render "likes/like", object: child_comment %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

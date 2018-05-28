@@ -1,0 +1,15 @@
+<% provide :title, t(".title") %>
+
+<div class="box-header">
+  <h1><%= t ".title" %></h1>
+</div>
+<div class="box-body">
+  <div class="row margin-bottom-10">
+  </div>
+  <div class="row pull-bottom">
+    <%= render "filter_form" %>
+  </div>
+  <div class="row">
+    <%= render "show_bookings" %>
+  </div>
+</div>

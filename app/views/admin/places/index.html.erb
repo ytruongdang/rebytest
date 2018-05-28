@@ -1,0 +1,36 @@
+<% provide :title, t(".title") %>
+
+<div class="box-header">
+  <h1><%= t ".title" %></h1>
+</div>
+<div class="box-body">
+  <div class="row margin-bottom-10">
+    <div class="col-md-3">
+      <%= link_to t("admin.places.new.title"), new_admin_place_path,
+        class: "btn btn-primary button-add" %>
+    </div>
+    <div class="col-md-9 text-right">
+      <%= render "search_form" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover table-responsive
+        table-bordered table-places" id="table-places">
+        <thead>
+          <tr>
+            <th class="button"></th>
+            <th class="picture_place"></th>
+            <th><%= t ".name" %></th>
+            <th><%= t ".type" %></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= places_tree_for @places %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
